@@ -4,18 +4,26 @@ The official [Homebrew](https://brew.sh) tap and binary downloads for the **Corb
 
 ## Install
 
-With Homebrew installed, run:
+On **Apple Silicon macOS**, with Homebrew installed and its shell setup completed, run:
 
 ```sh
-brew install corbado/tap/corbado
+brew install --cask corbado/tap/corbado
 ```
+
+Homebrew makes `corbado` available on PATH and installs `jq` for JSON filtering.
+The CLI is a signed, notarized standalone executable; no Bun or Node.js installation
+is needed. Intel macOS, Linux, and Windows are not currently supported.
 
 ## Upgrade
 
 ```sh
 brew update
-brew upgrade corbado/tap/corbado
+brew upgrade --cask corbado/tap/corbado
 ```
+
+If you previously installed the Homebrew formula, run `brew uninstall --formula corbado`
+once before installing the cask. Your project configuration and stored credentials
+are preserved.
 
 ## Get started
 
