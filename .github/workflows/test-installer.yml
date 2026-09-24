@@ -1,0 +1,31 @@
+name: Test Linux installer
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  install:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: linux-x64
+            runner: ubuntu-24.04
+          - target: linux-arm64
+            runner: ubuntu-24.04-arm
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install the pinned public release without root or Bun
+        env:
+          CORBADO_INSTALL: ${{ runner.temp }}/corbado-install
+        run: |
+          bash -s -- 1.0.1 < install.sh
+          test "$("$CORBADO_INSTALL/bin/corbado" --version)" = 1.0.1
+          test -f "$CORBADO_INSTALL/share/corbado/1.0.1/THIRD-PARTY-NOTICES.txt"
+          test -L "$CORBADO_INSTALL/bin/corbado"
