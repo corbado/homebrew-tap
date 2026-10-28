@@ -1,8 +1,8 @@
 cask "corbado" do
-  version "2.1.2"
-  sha256 "f31ae372a16e964b75054e015d1c7f7db02a8a9515e26c0e832a19a078c71a94"
+  version "2.2.0"
+  sha256 "7a25f46d0eeb2660527566b04f48d63d26fcf53d195e9b904f0190f29962c937"
 
-  url "https://github.com/corbado/homebrew-tap/releases/download/v2.1.2/corbado-2.1.2-darwin-arm64.tar.gz"
+  url "https://github.com/corbado/homebrew-tap/releases/download/v2.2.0/corbado-2.2.0-darwin-arm64.tar.gz"
   name "Corbado Observe CLI"
   desc "Command-line client for Corbado Observe"
   homepage "https://www.corbado.com"
